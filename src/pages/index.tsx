@@ -28,6 +28,9 @@ function HomepageHeader() {
   );
 }
 
+const bgColorExcludedClassNames =
+  'inline-flex items-center justify-center rounded-md border-none px-4 py-1.5 text-white';
+
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -35,6 +38,19 @@ export default function Home(): JSX.Element {
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
+      <div className="p-4 flex justify-center items-center">
+        <button
+          type="button"
+          className={[
+            bgColorExcludedClassNames,
+            'bg-blue-500',
+            'non-touchscreen:hover:bg-blue-600',
+            '[&]:active:bg-blue-700',
+          ].join(' ')}
+        >
+          Button
+        </button>
+      </div>
       <main>
         <HomepageFeatures />
       </main>

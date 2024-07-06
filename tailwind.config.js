@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   corePlugins: {
@@ -14,5 +16,12 @@ module.exports = {
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addVariant }) => {
+      addVariant(
+        'non-touchscreen',
+        '@media (hover: hover) and (pointer: fine)',
+      );
+    }),
+  ],
 };
